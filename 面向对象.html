@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name,age,sex){//归类  构造函数（构造函数对象的函数）
+            let obj = {};
+            obj.name=name;
+            obj.age=age;
+            obj.sex=sex;
+            return obj;
+        }
+        Person.prototype.say=function(){
+            
+        }
+        let p1 = new Person('www',24,'男');
+
+    </script>
+</body>
+</html>

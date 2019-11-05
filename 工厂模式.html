@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            工厂模式为了*批量*声场实例
+            效果是能够节省代码、提高效率
+
+            函数  目的就是为了复用
+
+            把相同属性值放在公共区
+        */
+        function fn (name,age,sky){//参数
+            // let obj = {};//源材料 之后对象的起源
+            // obj.name = name;//属性相等达到公共区的目的
+            // obj.age = age;
+            // obj.sky = sky;//加工
+            this.name=name;
+            this.age=age;
+            this.sky=sky;
+
+            // return obj;//出厂
+        }
+        let obj = new fn('zhufeng',10,'和谐')
+        let p1 = new fn('12qi',10,'和谐')
+        console.log(obj,p1)//{name: "zhufeng", age: 10, sky: "和谐"}
+
+        //取值不同，能够批量生产并加工
+    </script>
+</body>
+</html>
