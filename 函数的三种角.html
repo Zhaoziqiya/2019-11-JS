@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            三种角色：
+                函数：能够调用的角色
+
+                构造函数：
+                    new 构造对象的
+                    fn.prototype 公共的属性或者方法挂在这构造函数的原型下
+
+                Function的实例：
+                    new Function -> function(){}
+
+                    __proto__
+
+                在函数的原型下有一个属性，constructor，这个属性指向构造函数但是当前的constructor并不是100%准确的，它的指针仅仅只是一个指向构造函数的方向（一个参考），非常容易被修改
+
+                Fn.prototype = {
+
+                }
+        */
+    
+    function Fn (){
+
+    }
+
+    Fn.prototype = {
+        constructor:Fn
+    };//object
+
+    console.log(Fn.prototype.constructor);//ƒ Fn(){}
+    
+    </script>
+</body>
+</html>
