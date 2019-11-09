@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            p: [
+                'Hello',
+                {
+                    y: 'World',
+                    z: {
+                        x: [
+                            {
+                                j: 0
+                            }
+                        ]
+                    }
+                }
+            ]
+        };
+
+        // function move({ x = 0, y = 0 } = {}) {
+        //     return [x, y];
+        // }
+        // move({ x: 3, y: 8 }); // [3, 8]
+        // move({ x: 3 }); // [3, 0]
+        // move({}); // [0, 0]
+        // move(); // [0, 0]
+        // console.log(move());//默认参数
+
+        // function move({ x, y } = { x: 0, y: 0 }) {
+        //     return [x, y];
+        // }
+        // move({ x: 3, y: 8 }); // [3, 8]
+        // move({ x: 3 }); // [3, undefined]
+        // move({}); // [undefined, undefined]
+        // move(); // [0, 0]
+        // console.log(move({ x: 3, y: 8 }))//默认值
+
+        // Array.prototype.mySlice = function () {
+        //     let arr = [];
+        //     for (let i = 0; i < this.length; i++) {
+        //         arr.push(this[i])
+        //     }
+        //     return arr;
+        // }
+        // let ary = [1, 2, 3];
+        // function ff() {
+        //     let arg = [].mySlice.call(arguments);//arguments == this
+        //     console.log(arg);
+        // }
+        // ff(1, 2, 3, 3, 4, 5, 6, 9);
+
+        // console.log(ary.mySlice());
+
+
+
+
+
+    // let obj = {
+    //     p: [
+    //         'Hello',
+    //         {
+    //             y: 'World',
+    //             z:{
+    //                 x:[
+    //                     {
+    //                         j:0
+    //                     }
+    //                 ]
+    //             }
+    //         }
+    //     ]
+    // };
+
+    // let {
+    //     p: [
+    //         a,
+    //         {
+    //             y: b,
+    //             z:{
+    //                 x:[
+    //                     {
+    //                         j:c
+    //                     }
+    //                 ]
+    //             }
+    //         }
+    //     ]
+    // } = obj;
+
+    // console.log(a,b,c);//输出的是一一对应的值
+
+
+    // function move({x=0,y=0}) { //有就走传递的，没有就走默认的
+    //     return [x, y];
+    // }
+    // let {log} = console;
+    // log (move({x: 3, y: 8}) );//[3,8]
+    // log (move({x: 3})); //[3,0]
+    // log( move({}) ); //[0,0]
+    // log (move() );//[0,0] //因为没有传递实参，形参解构不出来，就会报错
+
+    </script>
+</body>
+
+</html>
