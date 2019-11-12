@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		body,
+		ul,
+		li {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="price.css" />
+</head>
+
+<body onselectstart="return false;">
+	<div class="wrap">
+		<div class="box">
+			<ul class="list" id="list">
+				<li>
+					<i></i>
+					<em>0</em>
+					<i></i>
+					<span>
+						单价：<strong id="Price">12.5元 </strong> 小计：<strong id="Subtotal">0元</strong>
+					</span>
+				</li>
+				<li>
+					<i></i>
+					<em>0</em>
+					<i></i>
+					<span>
+						单价：<strong id="Price">10.5元 </strong> 小计：<strong id="Subtotal">0元</strong>
+					</span>
+				</li>
+				<li>
+					<i></i>
+					<em>0</em>
+					<i></i>
+					<span>
+						单价：<strong id="Price">8.5元 </strong> 小计：<strong id="Subtotal">0元</strong>
+					</span>
+				</li>
+				<li>
+					<i></i>
+					<em>0</em>
+					<i></i>
+					<span>
+						单价：<strong id="Price">8元 </strong> 小计：<strong id="Subtotal">0元</strong>
+					</span>
+				</li>
+				<li>
+					<i></i>
+					<em>0</em>
+					<i></i>
+					<span>
+						单价：<strong id="Price">14.5元 </strong> 小计：<strong id="Subtotal">0元</strong>
+					</span>
+				</li>
+			</ul>
+			<div class="info" id="info">
+				<span>商品公合计：<em id="total">0</em>件</span>
+				<span>共花费了：<em id="spend">0</em>元</span>
+				<br />
+				<br />
+				<span>其中最贵的商品单价是：<em id="max">0</em>元</span>
+			</div>
+		</div>
+	</div>
+	<script>
+		let lisi = document.querySelectorAll('#list i');//获取每个i
+		// console.log(lisi);
+		let lisem = document.querySelectorAll('#list em');//获取每个em
+		// console.log(lisem);
+		let Price = document.querySelectorAll('#Price');//获取每个单价
+		// console.log(Price);
+		let Subtotal = document.querySelectorAll('#Subtotal');//获取每个小计
+		// console.log(Subtotal);
+		let total = document.getElementById('total');//获取商品公共合计
+		// console.log(total);
+		let spend = document.getElementById('spend');//获取共花费
+		// console.log(spend);
+		let max = document.getElementById('max');//获取最大单价
+		// console.log(max);
+
+		function fn(a) {
+			let b = 0;
+			lisi[2 * a].onclick = function () {
+				b--;
+				b < 0 ? b = 0 : null, lisem[a].innerHTML = b;
+				Subtotal[a].innerHTML = b * parseFloat(Price[a].innerHTML) + '元';
+				total.innerHTML = Number(lisem[0].innerHTML + Number(lisem[1].innerHTML) + lisem[2].innerHTML + lisem[3].innerHTML + lisem[4].innerHTML);
+				spend.innerHTML = parseFloat(Subtotal[0].innerHTML) + parseFloat(Subtotal[1].innerHTML) + parseFloat(Subtotal[2].innerHTML) + parseFloat(Subtotal[3].innerHTML) + parseFloat(Subtotal[4].innerHTML);
+				maxnum();
+			}
+			lisi[2 * a + 1].onclick = function () {
+				b++;
+				lisem[a].innerHTML = b;
+				Subtotal[a].innerHTML = b * parseFloat(Price[a].innerHTML) + '元';
+				total.innerHTML = Number(lisem[0].innerHTML + Number(lisem[1].innerHTML) + lisem[2].innerHTML + lisem[3].innerHTML + lisem[4].innerHTML);
+				spend.innerHTML = parseFloat(Subtotal[0].innerHTML) + parseFloat(Subtotal[1].innerHTML) + parseFloat(Subtotal[2].innerHTML) + parseFloat(Subtotal[3].innerHTML) + parseFloat(Subtotal[4].innerHTML);
+				maxnum();
+			}
+		}
+		for (let i = 0; i < lisem.length; i++) {
+			fn(i);
+		}
+		function maxnum() {
+			if (lisem[4].innerHTML > 0) {
+				max.innerHTML = 14.5;
+			} else if (lisem[0].innerHTML > 0) {
+				max.innerHTML = 12.5;
+			} else if (lisem[1].innerHTML > 0) {
+				max.innerHTML = 10.5;
+			} else if (lisem[2].innerHTML > 0) {
+				max.innerHTML = 8.5;
+			} else if (lisem[3].innerHTML > 0) {
+				max.innerHTML = 8;
+			} else {
+				max.innerHTML = 0;
+			}
+		}
+
+
+	</script>
+</body>
+
+</html>
