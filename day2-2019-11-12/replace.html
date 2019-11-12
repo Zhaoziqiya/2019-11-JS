@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    /*
+        string.replace(''或者放正则， '替换字符'或者放函数) 替换
+    */
+
+    let str = '冉德鹏和某炎和某德智，在某彭的身上跳脱衣舞';
+    console.log(str.replace(/德鹏|德|跳|舞/g,$0=>{
+        let arr = '';
+        for(let i = 0;i<$0.length;i++){
+            arr+='*';
+        }
+        return arr;
+    }));
+
+
+
+
+</script>
+</body>
+</html>
