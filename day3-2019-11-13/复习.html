@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            ()分组
+
+                应用：
+                    1.replace
+                    2.match
+                通过分组能够得到更加具体的字符
+                分组是从左往右数
+                ()()(()()())(())
+                (\d)+  这个\d代表最后一个数字
+
+            replace回调函数的参数
+
+            ?=   前瞻仰
+            ?<=  后瞻仰
+            ?!   负前瞻仰
+            ?<!  负后瞻仰
+        */
+
+        // let oop = '2019--------11';
+        // console.log(oop.match(/(\d+)(\d+)/));
+        // console.log(oop.match(/(\d+)\D+(\d+)/));
+        
+        let ppo = '喵喵人喵喵人嗷嗷人汪汪人吱吱人唧唧人哞哞人喵喵人咩咩人吼吼人';
+        // console.log(ppo.replace(/喵喵人/g,($0)=>$0.substr(0,2)+'神'));
+
+        //匹配项是括号的后面（后瞻仰）
+        // console.log(ppo.replace(/(?<=喵喵)人/g,'神'));
+        // console.log(ppo.replace(/喵喵/g,'华夏'));
+        // console.log(ppo.replace(/喵喵(?=人)/g,'华夏龙'));
+    
+    </script>
+</body>
+</html>
