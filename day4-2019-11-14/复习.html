@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            邮箱
+            用正则实现正确效果
+        */
+
+        let sto = 'xxxxx._@aoo.com';
+        console.log(/^[\w\W]{5,10}@[\da-zA-Z]{2,8}\.c(om|n)$/.test(sto));//.test为true的时候是正确的的
+    </script>
+</body>
+</html>

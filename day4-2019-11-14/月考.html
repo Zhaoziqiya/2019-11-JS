@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            1. JS中的数据类型都有哪些？它们之间有什么区别？该如何检测？
+            基本数据类型：
+                Number 1
+                string ''
+                Boolean(trun)/(false)
+                undefined 未定义
+                null 空
+                symbol 唯一值
+
+
+            引用数据类型：
+                Object：
+                    普通对象 {}
+                    数组 []
+                    Date 时间
+
+                function 函数
+
+            typeof、constructor
+
+            2. 阐述一下let/var/const三者之间的区别？
+                let 不会变量提升且有暂存死区(在变量定义的上方都访问不到这个变量)
+                不会存入到全局的活动变量对象中
+                不允许有多个同名的变量
+                支持块级作用域
+                var 变量提升，存入到全局的活动变量对象中,允许有多个同名的变量，不支持块级作用域
+                const 常量
+                不会变量提升且有暂存死区(在变量定义的上方都访问不到这个变量)
+                不会存入到全局的活动变量对象中
+                不允许有多个同名的变量
+                值是不能被改变的（引用类型可以改变属性值）
+                声明了必须赋值
+
+            3. 数组中常用的迭代方法有哪些？都是什么意思？（至少四种）
+                push 向数组末尾添加
+                unshift 向数组开头增加
+                shift 删除数组开头的第一项
+                pop 删除数组的末尾
+                splice 数组的增删改
+
+            4. 说一下你对闭包的理解，你写过哪些形式的闭包？
+                1.函数嵌套函数
+                2.子函数引用父函数的参数或者变量
+                3.子函数被外界所引用
+                4.父级就形成了闭包环境，父级的参数或者变量就不会被浏览器垃圾回收机制回收
+                5.打印父级的函数返回值，那么会发现，scopes下有个closure,就是闭包
+
+            5. 箭头函数和普通函数有哪些区别？
+            箭头函数
+                1.箭头函数没有prototype(原型)，所以箭头函数本身没有this
+                2.箭头函数的this在定义的时候继承自外层第一个普通函数的this。
+                3.箭头函数本身的this指向不能改变，但可以修改它要继承的对象的this。
+                4.箭头函数的this指向全局，使用arguments会报未声明的错误。
+                5.箭头函数的this指向普通函数时,它的argumens继承于该普通函数
+                6.使用new调用箭头函数会报错，因为箭头函数没有constructor
+                7.箭头函数不支持new.target
+                8.箭头函数不支持重命名函数参数,普通函数的函数参数支持重命名
+                9.箭头函数相对于普通函数语法更简洁优雅
+
+            普通函数
+                1.函数表达式
+                2.匿名函数
+                3.自调用函数
+                4.函数提升
+
+
+            6.阐述一下call/apply/bind三者之间的区别？
+                bind绑定this的指向之后，不会立即调用当前函数，而是将函数返回。
+                而call，apply绑定this指向后会立即调用。
+
+
+            7. 怎么把一个类数组转成数组？
+
+
+            8. 获取 m-n 之间的随机整数(包含m也包含n)
+            function fn(m,n){
+                return Math.floor(Math.random()*(n-m+1))+ m;
+            }
+
+            9.NaN
+
+            10.函数  报错
+
+            11. 11  12  0
+
+            12.10  123
+        */
+        
+        // 10.
+        // console.log(a); 
+        // var a=12;
+        // function a(){
+        //     console.log(a);
+        //     a=13;
+        // }
+        // a();
+        // console.log(a);
+        
+
+        // 11.
+        // var n=0; 
+        // function a(){
+        //     var n=10; 
+        //     function b(){
+        //         n++; 
+        //         console.log(n); 
+        //     }
+        //     b();
+        //     return b; 
+        // }
+        // var c=a();
+        // c(); 
+        // console.log(n);
+        
+        12.
+        var a1=4,a2=[1,2];
+        function b(x,y) {      
+            arguments[0]=10;     
+            arguments[1].push(3);  
+            y = [];   
+            console.log(x,y); 
+        }
+        b(a1,a2);   
+        console.log(a1,a2); 
+
+
+
+
+
+    </script>
+</body>
+
+</html>

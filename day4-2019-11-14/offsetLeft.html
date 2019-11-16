@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            padding: 100px;
+        }
+
+        #box {
+            background: pink;
+            position: relative;
+        }
+
+        #box1 {
+            background: plum;
+            position: relative;
+            border: 50px solid #676767;
+        }
+
+        #box2 {
+            background: purple;
+            position: absolute;
+            top: 100px;
+            border: 50px solid #676767;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="box1">
+            <div id="box2"></div>
+        </div>
+    </div>
+
+
+    <script>
+        /*
+            offsetLeft/offsetTop在实际中（页面复杂的情况下，要慎用，获取的距离是根据定位父级来的）
+
+            绝对位置才是最稳的一个距离（当前元素到页面顶部的距离）
+
+
+        */
+        console.log(box2.offsetLeft);//100 没有px属性
+        console.log(box2.clientLeft);
+
+        let noell = box2;
+        let a = 0;
+        //只要有当前这个元素就一直循环
+        // while(noell){
+        //     a += (noell.offsetLeft + noell.clientLeft);
+        // }
+        class Tools {
+            position(nowEle) {
+                let l = 0;
+                let t = 0;
+                let cl = nowEle.clientLeft;
+                let ct = nowEle.clientTop;
+                // 只要有当前这个元素就一直循环
+                while (nowEle) {
+                    1 +=
+                        (nowEle.offsetLeft + nowEle.clientLeft);
+                    t += (nowEle.offsetTop + nowEle.clientTop);
+                    nowEle = nowEle.offsetParent;
+                    //把本次的定位父级变成,下次循环的当前元素
+                }
+                l = l - cl;
+                t = t - ct;
+                return {
+                    l,
+                    t
+                }
+            }
+        }
+        let t1 = new Tools;
+        let { l, t } = t1.position(box2);
+        console.log(l, t);
+
+    </script>
+</body>
+
+</html>
