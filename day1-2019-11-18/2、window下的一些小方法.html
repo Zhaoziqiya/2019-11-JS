@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            padding: 100px;
+        }
+        #box2{
+            background: chocolate;
+            position: relative;
+        }
+        #box3{
+            position: absolute;
+            background: cyan;
+        }
+        body{
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="box2">
+            <div id="box3"></div>
+        </div>
+    </div>
+<script>
+    /*
+    * DOM：获取可视区的高度/宽度
+            document.documetElement.clientHeight
+            document.documetElement.clientWidth  如果有滚动条会减去滚动条的宽度
+
+    * BOM：
+            window.innerHeight/window.innerWidth,如果有滚动条，不会减去滚动条的宽度
+
+            window.pageXOffset/window.pageTOffset 滚动条的距离
+    */
+
+    // console.log(document.documentElement.clientWidth);//滚动条的宽度并且减去长度滚动条之后的数值，嘿嘿
+    // console.log(innerWidth);//屏幕的宽度，并不会减去滚动条的长度昂
+    // console.dir(box3.getBoundingClientRect());//DOMRect  没有头脑不是很清楚
+
+    window.onscroll = function(){
+        console.log(window.pageYOffset);//Y周滚动条的距离，并不是很清楚，干嘛用的，应该是监听吧。。。
+    }
+
+
+
+
+
+</script>
+</body>
+</html>
