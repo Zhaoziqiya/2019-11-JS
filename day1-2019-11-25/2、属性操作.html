@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" data-index="1"></div>
+
+    <button>按钮一</button>
+    <button>按钮二</button>
+    <button>按钮三</button>
+
+    <input type="checkbox">
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        /*
+            attr -> getAttribue,setAttribute
+            removeAttr -> removeAttribute
+        */
+
+        // $('#box').attr('index','0');
+        // console.log($('#box').attr('index'));//undefined
+        // console.log($('#box').removeAttr('data-index'));//k.fn.init [div#box]
+
+        $(':button:eq(0)').click(function(){
+            $(':checkbox').attr('checked',true);//让第零个值为true
+        });
+        $(':button:eq(1)').click(function(){
+            $(':checkbox').attr('checked',false)//让第一个值为false
+        });
+        $(':button:eq(2)').click(function(){
+            // console.log($(':checkbox').attr('checked'));
+            // console.log($(':checkbox').prop('checked'))
+            //attr getAttribute/setAttribute
+            //prop 表单的状态布尔值（表单元素用）
+            if($(':checkbox').prop('checked') === true ){
+                $(':checkbox').attr('checked',false);//判断获取并给予当前值位false
+            }else{
+                $(':checkbox').attr('checked',true);//反之为true
+            }
+        });
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>

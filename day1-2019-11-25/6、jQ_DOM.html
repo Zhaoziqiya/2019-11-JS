@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">添加</button>
+    <ul id="ul"></ul>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        /*
+            DOM -> 文档对象栏
+
+            增删改查差
+                增加元素
+                    $('<li></li>')
+
+            关键、父子、祖先关系、子孙关系
+
+            回流和重绘
+
+            盒子模型
+
+            事件中的this，默认是原生对象
+
+            jQuery元素都可以链式调用
+
+            parent.prepend(child)  等同于  insertBefore
+
+            
+        */
+        let num = 0;
+        $('#btn').click(function () {
+            /*
+                创建一个li，li里有样式和内容，然后把它们插入到ul中
+            */
+           let $li = $('<li>'+ ++num +'</li>').css({
+               width:30,
+               height:30
+           });
+
+           $li.click(function () {
+               $(this).remove();
+           });
+
+           //边框一个是给ul添加，一个是给li添加
+        //    $('ul').append('$li').css('border','1px solid #000');
+        //    $li.appendto($('#ul')).css('border','1px solid #ff6700');
+           $('#ul').prepend($li)
+        //    console.log($('<li>')[0]) //出不来???
+        });
+
+    </script>
+</body>
+    
+
+</html>

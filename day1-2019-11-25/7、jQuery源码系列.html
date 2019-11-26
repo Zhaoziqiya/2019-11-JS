@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 构造函数?
+
+        /*
+            不能在外面new，但是如果在里面new那么就出现了递归  (封闭空间解决)
+        */
+
+        function myQuery() {
+            // 因为不能new自己，所以创建了一个$函数作为替身，这个替身拥有myQuery所有的方法和属性
+            return new $ // new myQuery; // 防止递归
+        }
+
+        function $() {
+            // $ 函数调用，再调用
+        }
+
+        myQuery.prototype = {
+            v:'x.0', // ??
+            constructor:myQuery, // 原型下的myQuery
+            css:function () { // css的函数调用
+                console.log(1);
+            }
+        }
+
+        /*
+            让$的实例化对象拥有myQuery的方法
+        */
+        $.prototype = myQuery.prototype;
+
+
+        // fn.init = function () {
+        //     return new myQuery;
+        // }
+        
+        // function myQuery () {
+        //     alert(1);
+        // }
+        
+        let $ = myQuery(); // ;  // $() -> new
+        myQuery().css();
+
+
+
+    </script>
+</body>
+
+</html>

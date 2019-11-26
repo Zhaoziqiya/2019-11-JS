@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        /*
+            原生对象jQuery只需要包$()即可
+
+            box -> $(box) 就要变成jQuery对象
+
+            jQuery对象转原生对象
+
+            $box -> $box.get(0)
+
+                 ->  $box[0]
+        */
+        const box = document.getElementById('box');
+        const $box = $('#box');
+    
+        $(box).css({
+            width:100,
+            height:100,
+            background:'hotpink'
+        });
+        console.log($box.get(0));//两个打印结果都是一样的
+        console.log($box[0]);
+    </script>
+</body>
+</html>

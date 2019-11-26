@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 200px;
+        height: 500px;
+        border: 1px solid #000;
+        overflow:scroll; 
+    }
+    </style>
+</head>
+<body>
+    <div></div>
+    <button>发送</button>
+    <input type="text">
+    <ul>
+
+    </ul>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(':button').click(function(){//获取按钮增加点击事件
+            let val = $(':text').val();//变量赋值
+            $('div').html('<li>'+val+'</li>'+ $('div').html());//把li输送到div里
+            $(':text').val('');//输入完成后变为空
+        });
+        
+    </script>
+</body>
+</html>
