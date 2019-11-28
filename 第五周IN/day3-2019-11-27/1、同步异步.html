@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = 10;
+        // a = 20;
+        // document.onclick = function(){
+        //     console.log(a);
+        // }    
+
+        // console.log(a);//会执行，不会堵塞
+
+        
+        // setTimeout(()=>{
+        //     console.log(a);//后执行
+        // });
+        // a = 20;
+
+
+        // console.log(a,11111);//先执行
+
+        
+        // let a = 10;
+        // setTimeout(()=>{
+        //     a = 20;
+        // },0);
+
+        // console.log(a);//10
+
+        // let a = 20;
+
+        // setTimeout(()=>{
+        //     console.log(a,'2秒');//20 "2秒"
+        // },2000);
+
+        // setTimeout(()=>{
+        //     console.log(a,'定时器');
+        // },0);
+
+        // 是异步
+        // let p = new Promise((rej,res)=>{
+        //     rej(5);
+        // });
+        // p.then((d)=>{
+        //     console.log(d,'promise');//5 "promise"
+        // })
+
+
+        // a = 20;
+        // console.log(a);//20
+
+        // (function a () {
+        //     a = 30;
+        //     cosole.log(a);//报错
+        // })();
+    </script>
+</body>
+</html>

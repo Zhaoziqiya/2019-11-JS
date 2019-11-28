@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+            promise -> 承诺
+        */
+
+
+        // let a = 10;
+        // setTimeout(()=>{
+        //     a = 20;
+        //     console.log(a);
+        // },1000);
+
+
+        // console.log(a);
+        
+
+        // const first = () => (new Promise((resolve, reject) => {
+        // console.log(3);
+        // let p = new Promise((resolve, reject) => {
+        //     console.log(7);
+        //     setTimeout(() => {
+        //         console.log(5);
+        //         resolve(6);
+        //     }, 0)
+        //     resolve(1);
+        // });
+        // resolve(2);
+        // p.then((arg) => {
+        //     console.log(arg);
+        // });
+
+        // }));
+
+        // first().then((arg) => {
+        //     console.log(arg);
+        // });
+        // console.log(4);
+
+
+        // let a = 10;
+        //     function fn (cb){
+        //         setTimeout(()=>{
+        //             a = 20;
+        //             cb(a);
+        //         },3000);
+        //     }
+        //     fn(function(a){
+        //         console.log(a);//20
+        //     });
+        
+
+        // let p = new Promise((resolve,reject)=>{
+        //     setTimeout(()=>{
+        //         a = 20;
+        //         resolve(a);
+
+        //     })
+        // })
+        
+        // p.then(function(a){
+        //     console.log(a);
+        //     console.log(1000);
+        // },function(){
+        //     console.log('失败');
+        // }).finally(function(){
+        //     console.log('都来')
+        // });
+        // console.log(a);
+
+        //pending
+        let p = new Promise((resolve,reject)=>{
+            setTimeout( () => {
+                resolve({
+                    data:'{"name":"珠峰"}',
+                    json:function(){
+                        return JSON.parse(this.data);
+                    }
+                })
+            },2000);
+        });
+
+        p.then(function(d){
+            return d.json();
+        })
+        .then(function(d){
+            //{"name":"珠峰"} -> json是字符串，把json转成对象使用JSON.parse
+            console.log(d.name);
+        });
+
+        // console.log(JSON.parse("{'name':'zf'}"));// 报错
+
+        console.log(JSON.parse('{"name":"zf"}'));
+    </script>   
+</body>
+</html>
