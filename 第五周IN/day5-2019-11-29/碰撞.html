@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            /* border: 1px solid #ff6700; */
+            background: peru;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color:palevioletred;
+            position: absolute;
+            top: 500px;
+            left: 500px;
+        }
+    
+    
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="box2"></div>
+    <script src="./bong.js"></script>
+    <script>
+        /*
+            DOM0 on
+                null
+
+            DOM0 addEventLisrener
+
+                removeEventListener('事件'，要解除的函数，布尔值)
+                    注意：
+                        *** 接触函数必定是一个有名函数（要和绑定的函数对应）
+
+        */
+    //    box.addEventListener('mousedown',function(ev){
+    //        let {left,top:t} = this.getBoundingClientRect();
+
+    //        let disX = ev.pageX - left; // 鼠标指针当前的位置减去左值
+    //        let disY = ev.pageY - t; // 鼠标当前的位置减去上值
+    //     //    console.log(disX);
+
+    //        function m (ev) {
+    //             let l = ev.pageX - disX; 
+    //             let t = ev.pageY - disY;
+    //             let r = l + box.offsetWidth; // 右值：左侧X轴加上box可视区的宽度
+    //             let b = t + box.offsetHeight; //下值：上侧Y轴加上box可视区的高度
+
+    //             let {left:l2,top:t2,bottom:b2,right:r2} = box2.getBoundingClientRect();
+
+    //             // console.log(box.getBoundingClientRect());
+    //             // console.log( r < 12,b < t2 );
+    //             if(r < l2 || b < t2 || l > r2 || t > b2) { // 触碰到时的判断条件   取相反值
+    //                 console.log('没碰到');
+    //                 box2.style.background = 'palevioletred';
+    //             }else{
+    //                 console.log('碰到了');
+    //                 box2.style.background = 'pink';
+    //             }
+    //             box.style.cssText = `left:${l}px;top:${t}px;`;
+    //        }
+    //        function up (ev) {
+    //            document.removeEventListener('mousemove',m); // 解除函数
+    //            document.removeEventListener('mouseup',up); //解除函数
+    //        }
+    //        document.addEventListener('mousemove',m); //绑定函数
+    //        document.addEventListener('mouseup',up); //绑定函数
+
+    //        ev.preventDefault();
+    //    });
+    
+
+    box.addEventListener('mousedown',function(ev){
+        let {left,top:t} = this.getBoundingClientRect();
+        let disX = ev.pageX - left;
+        let disY = ev.pageY - t;
+
+        function m (ev) {
+            if(bong(box,box2)){
+                box2.style.background = 'pink'
+            }else{
+                box2.style.background = 'palevioletred';
+            }
+
+            box.style.cssText = `left:${ev.pageX - disX}px;top:${ev.pageY - disY}px;`;
+        }
+        function up (ev) {
+            document.removeEventListener('mousemove',m); //解除函数
+            document.removeEventListener('mouseup',up); //解除绑定
+
+        }
+        document.addEventListener('mousemove',m); //绑定函数
+        document.addEventListener('mouseup',up); //绑定函数
+        ev.preventDefault();
+    });
+
+    //单词没记牢
+    
+    
+    </script>
+</body>
+</html>
